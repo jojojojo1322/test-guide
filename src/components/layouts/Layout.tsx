@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { Box, AppBar, Toolbar, Typography, Container } from "@mui/material";
+import { AppBar, Box, Toolbar, Typography } from "@mui/material";
 import { useAuthStore } from "@/store/authStore";
 
 export default function Layout() {
@@ -7,7 +7,6 @@ export default function Layout() {
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-      {/* Header */}
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -20,27 +19,8 @@ export default function Layout() {
           )}
         </Toolbar>
       </AppBar>
-
-      {/* Main Content */}
-      <Box component="main" sx={{ flexGrow: 1, py: 3 }}>
-        <Container maxWidth={false}>
-          <Outlet />
-        </Container>
-      </Box>
-
-      {/* Footer (optional) */}
-      <Box
-        component="footer"
-        sx={{
-          py: 2,
-          px: 2,
-          mt: "auto",
-          backgroundColor: (theme) => theme.palette.grey[100],
-        }}
-      >
-        <Typography variant="body2" color="text.secondary" align="center">
-          © 2026 JCPS-TR
-        </Typography>
+      <Box component="main" sx={{ flexGrow: 1 }}>
+        <Outlet />
       </Box>
     </Box>
   );
