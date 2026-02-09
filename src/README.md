@@ -1,0 +1,21 @@
+# src 폴더 역할
+
+- `api`: 공통 API 인스턴스/HTTP 설정. (`instance.ts`)
+- `assets`: 정적 리소스. (css, 이미지 등)
+  - `assets/css`: 전역 스타일/공통 스타일. (현재 placeholder)
+- `components`: 재사용 UI 컴포넌트.
+  - `components/grid`: 그리드 관련 컴포넌트. (현재 placeholder)
+  - `components/layouts`: 레이아웃 컴포넌트. (`Layout.tsx`)
+- `hooks`: 공통 훅 모음. (`useAuth`, `useMenu`, `useQueryState`)
+- `lib`: 범용 유틸/헬퍼. (`queryParams.ts`)
+- `models`: 도메인 타입/모델 정의. (`menu.ts`)
+- `pages`: 라우팅 단위 페이지.
+  - `pages/error`: 에러/권한 관련 페이지.
+  - `pages/main`: 메인 페이지.
+  - `pages/menu`: 메뉴/기능별 페이지. (예: `flight-1/*`, `scan.ts`)
+- `router`: 라우팅 설정/가드.
+  - `router/guards`: 라우트 가드. (`AuthGuard.tsx`)
+  - `router/index.tsx`: 라우트 정의.
+- `store`: 전역 상태 관리. (`authStore.ts`)
+- `App.tsx`: 앱 루트 컴포넌트.
+- `main.tsx`: 앱 엔트리.

@@ -1,0 +1,13 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+set -e
+
+# 의존성 취약점 검사 (npm advisory DB)
+pnpm audit
+# 의존성 취약점 검사 (OSV/GHSA 통합)
+pnpm dlx --yes osv-scanner --lockfile=pnpm-lock.yaml
+# 정적 분석 (웹/앱 보안 룰)
+pnpm dlx --yes semgrep --config=p/owasp-top-ten --config=p/javascript --config=p/typescript .
+# 시크릿 유출 검사 (워크트리)
+pnpm dlx --yes gitleaks detect --source . --no-git
